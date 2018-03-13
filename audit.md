@@ -77,6 +77,27 @@ The loading sequence:
 - Images
 
 
+### Minifying
+
+Minifying the CSS and JS files:
+
+CSS:
+- fonts.css
+- docs.css
+- bootstrap.css
+
+JS:
+- bootstrap.js
+- ie10-viewport-bug-workaround.js
+
+**Stats:**
+
+Network tab
+- 17 requests
+- 1.2 MB Transfered
+- Finish: 29.86s
+- DOMContentLoaded: 15.59s
+- Load: 29.87s
 
 
 
