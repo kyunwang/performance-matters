@@ -95,7 +95,6 @@ Using `ImageOptim` didn't seem to shave off any size. I reckon that they have al
 
 Average saved 50% from jpeg and 25% from png files.
 
-
 **Stats**
 Network tab
 - 17 Requests
@@ -105,6 +104,33 @@ Network tab
 - Load: 22.98s
 
 Compressing the images saved around *7seconds* from the total loadtime.
+
+### Minifying
+
+Minifying the CSS and JS files:
+
+CSS:
+- fonts.css
+- docs.css
+- bootstrap.css
+
+JS:
+- bootstrap.js
+- ie10-viewport-bug-workaround.js
+
+**Stats:**
+
+Network tab
+- 17 requests
+- 1.2 MB Transfered
+- Finish: 29.86s
+- DOMContentLoaded: 15.59s
+- Load: 29.87s
+
+
+
+
+
 
 [b-summary]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/before/summary.png
 [b-perf]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/before/perf.png
