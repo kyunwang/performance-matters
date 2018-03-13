@@ -2,30 +2,39 @@
 
 This documents documents the audit
 
+## Table of Contents
+- [Settings & Tools](#setting-&-tools)
+	- [Settings](#settings)
+	- [Browser](#browser)
+	- [Tools](#tools)
+- [First snapshot](#first-snapshot)
+- [](#)
 
 ## Settings & Tools
 The used settings and tools:
 
-**Settins**
+### Settings
 - Disable cache 
 - Throttle: 3G Slow
 - 
 
-**Browser**
+### Browser
 - Google Chrome
 
-**Tools**
+### Tools
 - Google Chrome Devtools
 	- Network
 	- Timeline
 	- Audits
 
+- Using ImageOptim to compress images (not the most optimal but pretty good one0)
+
 
 ## First snapshot
 
-On homepage
+Snapshot on from the homepage.
 
-Stats:
+**Stats:**
 
 Network tab
 - 19 requests
@@ -34,7 +43,46 @@ Network tab
 - DOMContentLoaded: 14.02s
 - Load: 30.96s
 
-Performance tab
+![before summary][b-summary]
 
-images here
+![before performance][b-perf]
 
+![before opportunity][b-opp]
+
+![before network][b-network]
+
+![before details][b-details]
+
+![][]
+
+The biggest issues are the **images** and **fonts**
+
+The Jpegs and Fonts take around 15 to 18 seconds each to get downloaded.
+
+CSS and JS can be minified (uglified too)
+
+- First paint happens around 12125ms.
+- Load of first content around 15050ms
+- The first font around 22775ms
+- The second font around 23375ms
+
+**Waterfall**
+
+The loading sequence:
+- HTML
+- CSS
+- JS
+- Images
+- Fonts
+- Images
+
+
+
+
+
+[b-summary]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/before/summary.png
+[b-perf]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/before/perf.png
+[b-opp]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/before/opp.png
+[b-network]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/before/network.png
+[b-details]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/before/details.png
+[.]: .
