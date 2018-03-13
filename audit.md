@@ -41,7 +41,7 @@ Snapshot on from the homepage.
 **Stats:**
 
 Network tab
-- 19 requests
+- 19 Requests
 - 1.2 MB Transfered
 - Finish: 30.95s
 - DOMContentLoaded: 14.02s
@@ -95,6 +95,16 @@ Using `ImageOptim` didn't seem to shave off any size. I reckon that they have al
 
 Average saved 50% from jpeg and 25% from png files.
 
+
+**Stats**
+Network tab
+- 17 Requests
+- 879 KB Transfered
+- Finish: 22.98s
+- DOMContentLoaded: 13.30s
+- Load: 22.98s
+
+Compressing the images saved around *7seconds* from the total loadtime.
 
 [b-summary]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/before/summary.png
 [b-perf]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/before/perf.png
