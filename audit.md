@@ -8,6 +8,10 @@ This documents documents the audit
 	- [Browser](#browser)
 	- [Tools](#tools)
 - [First snapshot](#first-snapshot)
+- [Process](#process)
+	- [Images](#images)
+- [](#)
+- [](#)
 - [](#)
 
 ## Settings & Tools
@@ -77,7 +81,19 @@ The loading sequence:
 - Images
 
 
+### Process
+Here the process will be documented.
 
+I started with making a back up after the first audit of the not optimised state in branch `first-snap`. Each optimisation will be based on this state and be merged toghether in the `master` branch.
+
+#### Images
+The images are one of the biggest bottlenecks so they will be compressed by using the program `ImageOptim` on mac.
+
+Said images reside in `src/assets/img`.
+
+Using `ImageOptim` didn't seem to shave off any size. I reckon that they have already gone throught the same compression technology. That being said, I will be using [compressjpeg.org](http://compressjpeg.com/) and [http://compresspng.com/](http://compresspng.com/) because in my experience they have always exceeded the performance of `ImageOptim`.
+
+Average saved 50% from jpeg and 25% from png files.
 
 
 [b-summary]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/before/summary.png
