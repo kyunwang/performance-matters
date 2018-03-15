@@ -83,6 +83,7 @@ The loading sequence:
 - Fonts
 - Images
 
+### Font loading
 
 ### Process
 Here the process will be documented.
@@ -169,14 +170,14 @@ Around 9 seconds have been won.
 
 Adding font-swap and a script using FontFaceObserver to asynchronously load in fonts.
 
-
-
 Network tab
 - 17 requests
-- 825 kb Transfered
-- Finish: 22.13s
-- DOMContentLoaded: 16.79s
-- Load: 22.13s
+- 1.2 kb Transfered
+- Finish: 30.02s
+- DOMContentLoaded: 15.77s
+- Load: 30.02s
+
+Almost saved 1 second
 
 
 <!-- - [x] critical css -->
