@@ -25,9 +25,24 @@
     {% block body %}{% endblock %}
 
     <script src="/assets/js/vendor/jquery.min.js"></script>
+    <script src="/assets/js/vendor/fontfaceobserver.js"></script>
     <script src="/dist/js/bootstrap.js"></script>
     <script src="/assets/js/docs.min.js"></script>
-    <script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+	 <script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+	 
+	<script>
+		(function(document) {
+
+			var font = new FontFaceObserver('source_sans_pro');
+			var html = document.documentElement;
+			// load font async, then enhance HTML:
+			font.load().then(function () {
+				html.className += 'fonts-loaded';
+			});
+
+			}(document));
+		</script>
+
     {% block scripts_extra %}{% endblock %}
 </body>
 </html>
