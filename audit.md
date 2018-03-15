@@ -10,8 +10,8 @@ This documents documents the audit
 - [First snapshot](#first-snapshot)
 - [Process](#process)
 	- [Images](#images)
-- [](#)
-- [](#)
+	- [Minifying](#minifying)
+	- [Critical Css](#critical-css)
 - [](#)
 
 ## Settings & Tools
@@ -127,7 +127,44 @@ Network tab
 - DOMContentLoaded: 15.59s
 - Load: 29.87s
 
+Only a one second save won.
 
+### Critical Css
+
+Applied critical css suping the npm package `Critical` and running it through `Gulp`.
+Why `Gulp`? Because the `CLI` documentation lacks and misses some options.
+
+The `Critical` plugin has been run over `_base/layout1.html` to `_base/layout.html`.
+
+I am using `layout1.html` as a base as it is the original file.
+
+**NOTE**: 
+The output will create an error in the for the template engine.
+
+Change
+
+```
+// This
+<body {%="" block="" body_attributes="" %}{%="" endblock="" %}="">
+
+// To this
+<body {% block body_attributes %}{% endblock %}>
+```
+
+Network tab
+- 17 requests
+- 825 kb Transfered
+- Finish: 22.13s
+- DOMContentLoaded: 16.79s
+- Load: 22.13s
+
+Around 9 seconds have been won.
+
+
+<!-- - [x] critical css -->
+<!-- - [] font loading -->
+<!-- - [x] image optimalisaties -->
+<!-- - [] asynchroon laden van assets -->
 
 
 

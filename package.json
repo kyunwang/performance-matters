@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "expose": "ngrok http 3004"
+    "expose": "ngrok http 3004",
+	 "gulp": "gulp critical"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +16,10 @@
   },
   "dependencies": {
     "body-parser": "1.15.2",
+    "critical": "^1.1.1",
     "express": "4.14.0",
+    "gulp": "^3.9.1",
+    "gutil": "^1.6.4",
     "nunjucks": "3.0.0"
   }
 }

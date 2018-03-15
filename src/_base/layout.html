@@ -3,9 +3,16 @@
 <head>
     {% include './app-meta.html' %}
 
-    <link href="/dist/css/fonts.css" rel="stylesheet">
-    <link href="/dist/css/bootstrap.css" rel="stylesheet">
-    <link href="/assets/css/src/docs.css" rel="stylesheet">
+    <style type="text/css">
+        @font-face{font-family:source_sans_pro;src:url(/dist/fonts/sourcesanspro-it.woff2) format('woff2'),url(/dist/fonts/sourcesanspro-it.woff) format('woff');font-weight:400;font-style:italic}@font-face{font-family:source_sans_pro;src:url(/dist/fonts/sourcesanspro-light.woff2) format('woff2'),url(/dist/fonts/sourcesanspro-light.woff) format('woff');font-weight:300;font-style:normal}@font-face{font-family:source_sans_pro;src:url(/dist/fonts/sourcesanspro-lightit.woff2) format('woff2'),url(/dist/fonts/sourcesanspro-lightit.woff) format('woff');font-weight:300;font-style:italic}@font-face{font-family:source_sans_pro;src:url(/dist/fonts/sourcesanspro-regular.woff2) format('woff2'),url(/dist/fonts/sourcesanspro-regular.woff) format('woff');font-weight:400;font-style:normal}@-ms-viewport{width:device-width}html{font-family:source_sans_pro,sans-serif}html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}html{font-size:10px}body{font-size:14px;line-height:1.42857143;color:#333;background-color:#fff}body{position:relative}
+    </style>
+    <link href="/dist/css/fonts.css" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="/dist/css/fonts.css" rel="stylesheet"></noscript>
+    <link href="/dist/css/bootstrap.css" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="/dist/css/bootstrap.css" rel="stylesheet"></noscript>
+    <link href="/assets/css/src/docs.css" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="/assets/css/src/docs.css" rel="stylesheet"></noscript>
+    <script>!function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);</script>
 
     {% block head_extra %}{% endblock %}
 </head>
