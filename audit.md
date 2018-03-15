@@ -12,6 +12,9 @@ This documents documents the audit
 	- [Images](#images)
 	- [Minifying](#minifying)
 	- [Critical Css](#critical-css)
+	- [Font loading](#font-loading)
+	- [](#)
+	- [](#)
 - [](#)
 
 ## Settings & Tools
@@ -138,6 +141,8 @@ The `Critical` plugin has been run over `_base/layout1.html` to `_base/layout.ht
 
 I am using `layout1.html` as a base as it is the original file.
 
+Do not forget to import the `loadcss.js` file
+
 **NOTE**: 
 The output will create an error in the for the template engine.
 
@@ -159,6 +164,19 @@ Network tab
 - Load: 22.13s
 
 Around 9 seconds have been won.
+
+### Font loading
+
+Adding font-swap and a script using FontFaceObserver to asynchronously load in fonts.
+
+
+
+Network tab
+- 17 requests
+- 825 kb Transfered
+- Finish: 22.13s
+- DOMContentLoaded: 16.79s
+- Load: 22.13s
 
 
 <!-- - [x] critical css -->
