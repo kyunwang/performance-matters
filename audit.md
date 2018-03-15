@@ -162,7 +162,7 @@ Around 9 seconds have been won.
 
 
 <!-- - [x] critical css -->
-<!-- - [] font loading -->
+<!-- - [x] font loading -->
 <!-- - [x] image optimalisaties -->
 <!-- - [] asynchroon laden van assets -->
 

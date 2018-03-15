@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var gutil = require('gulp-util');
 var critical = require('critical');
 
 // Generate & Inline Critical-path CSS

@@ -4,7 +4,7 @@
     {% include './app-meta.html' %}
 
     <style type="text/css">
-        @font-face{font-family:source_sans_pro;src:url(/dist/fonts/sourcesanspro-it.woff2) format('woff2'),url(/dist/fonts/sourcesanspro-it.woff) format('woff');font-weight:400;font-style:italic}@font-face{font-family:source_sans_pro;src:url(/dist/fonts/sourcesanspro-light.woff2) format('woff2'),url(/dist/fonts/sourcesanspro-light.woff) format('woff');font-weight:300;font-style:normal}@font-face{font-family:source_sans_pro;src:url(/dist/fonts/sourcesanspro-lightit.woff2) format('woff2'),url(/dist/fonts/sourcesanspro-lightit.woff) format('woff');font-weight:300;font-style:italic}@font-face{font-family:source_sans_pro;src:url(/dist/fonts/sourcesanspro-regular.woff2) format('woff2'),url(/dist/fonts/sourcesanspro-regular.woff) format('woff');font-weight:400;font-style:normal}@-ms-viewport{width:device-width}html{font-family:source_sans_pro,sans-serif}html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}html{font-size:10px}body{font-size:14px;line-height:1.42857143;color:#333;background-color:#fff}body{position:relative}
+        @font-face{font-family:source_sans_pro;src:url(/dist/fonts/sourcesanspro-it.woff2) format('woff2'),url(/dist/fonts/sourcesanspro-it.woff) format('woff');font-weight:400;font-style:italic;font-display:swap}@font-face{font-family:source_sans_pro;src:url(/dist/fonts/sourcesanspro-light.woff2) format('woff2'),url(/dist/fonts/sourcesanspro-light.woff) format('woff');font-weight:300;font-style:normal;font-display:swap}@font-face{font-family:source_sans_pro;src:url(/dist/fonts/sourcesanspro-lightit.woff2) format('woff2'),url(/dist/fonts/sourcesanspro-lightit.woff) format('woff');font-weight:300;font-style:italic;font-display:swap}@font-face{font-family:source_sans_pro;src:url(/dist/fonts/sourcesanspro-regular.woff2) format('woff2'),url(/dist/fonts/sourcesanspro-regular.woff) format('woff');font-weight:400;font-style:normal;font-display:swap}@-ms-viewport{width:device-width}html{font-family:source_sans_pro,sans-serif}html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}html{font-size:10px}body{font-size:14px;line-height:1.42857143;color:#333;background-color:#fff}body{position:relative}
     </style>
     <link href="/dist/css/fonts.css" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="/dist/css/fonts.css" rel="stylesheet"></noscript>
@@ -14,6 +14,39 @@
     <noscript><link href="/assets/css/src/docs.css" rel="stylesheet"></noscript>
     <script>!function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);</script>
 
+
+	 <script>
+			// Get all of the images that are marked up to lazy load
+			const images = document.querySelectorAll('.img-responsive');
+			
+			const config = {
+				// If the image gets within 50px in the Y axis, start the download.
+				rootMargin: '0px',
+				threshold: 0.01
+			};
+	
+			// If we don't have support for intersection observer, load the images immediately
+			if (!('IntersectionObserver' in window)) {
+				Array.from(images).forEach(image => preloadImage(image));
+			} else {
+				// The observer for the images on the page
+				let observer = new IntersectionObserver(onIntersection, config);
+				console.log(observer);
+				
+				function onIntersection(entries) {
+					// Loop through the entries
+					entries.forEach(entry => {
+						// Are we in viewport?
+						if (entry.intersectionRatio > 0) {
+							// Stop watching and load the image
+							observer.unobserve(entry.target);
+							preloadImage(entry.target);
+						}
+					});
+				}
+			}
+			
+		 </script>
     {% block head_extra %}{% endblock %}
 </head>
 
@@ -21,10 +54,11 @@
 
     {% block body %}{% endblock %}
 
-    <script src="/assets/js/vendor/jquery.min.js"></script>
-    <script src="/dist/js/bootstrap.js"></script>
-    <script src="/assets/js/docs.min.js"></script>
-    <script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script defer sync src="/assets/js/vendor/jquery.min.js"></script>
+    <script defer sync src="/dist/js/bootstrap.js"></script>
+    <script defer sync src="/assets/js/docs.min.js"></script>
+	 <script defer sync src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+	 
     {% block scripts_extra %}{% endblock %}
 </body>
 </html>
