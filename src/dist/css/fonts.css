@@ -1,5 +1,5 @@
 html {
-    font-family: 'source_sans_pro', sans-serif;
+	 font-family: 'source_sans_pro', sans-serif;
 }
 
 @font-face {
@@ -7,7 +7,8 @@ html {
     src: url('/dist/fonts/sourcesanspro-it.woff2') format('woff2'),
     url('/dist/fonts/sourcesanspro-it.woff') format('woff');
     font-weight: 400;
-    font-style: italic;
+	 font-style: italic;
+	 font-display: swap;
 }
 
 @font-face {
@@ -15,7 +16,8 @@ html {
     src: url('/dist/fonts/sourcesanspro-light.woff2') format('woff2'),
     url('/dist/fonts/sourcesanspro-light.woff') format('woff');
     font-weight: 300;
-    font-style: normal;
+	 font-style: normal;
+	 font-display: swap;
 }
 
 @font-face {
@@ -23,7 +25,8 @@ html {
     src: url('/dist/fonts/sourcesanspro-lightit.woff2') format('woff2'),
     url('/dist/fonts/sourcesanspro-lightit.woff') format('woff');
     font-weight: 300;
-    font-style: italic;
+	 font-style: italic;
+	 font-display: swap;
 }
 
 @font-face {
@@ -31,5 +34,6 @@ html {
     src: url('/dist/fonts/sourcesanspro-regular.woff2') format('woff2'),
     url('/dist/fonts/sourcesanspro-regular.woff') format('woff');
     font-weight: 400;
-    font-style: normal;
+	 font-style: normal;
+	 font-display: swap;
 }
