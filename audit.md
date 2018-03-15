@@ -13,9 +13,7 @@ This documents documents the audit
 	- [Minifying](#minifying)
 	- [Critical Css](#critical-css)
 	- [Font loading](#font-loading)
-	- [](#)
-	- [](#)
-- [](#)
+- [Result](#result)
 
 ## Settings & Tools
 The used settings and tools:
@@ -172,12 +170,34 @@ Adding font-swap and a script using FontFaceObserver to asynchronously load in f
 
 Network tab
 - 17 requests
-- 1.2 kb Transfered
+- 1.2 mb Transfered
 - Finish: 30.02s
 - DOMContentLoaded: 15.77s
 - Load: 30.02s
 
 Almost saved 1 second
+
+
+## Result
+
+The result till now after merging all the changes:
+
+Network tab
+- 19 requests
+- 833 kb Transfered
+- Finish: 21.60s
+- DOMContentLoaded: 12.14s
+- Load: 21.61s
+
+![after summary][a-summary]
+
+![after performance][a-perf]
+
+![after opportunity][a-opp]
+
+![after network][a-network]
+
+
 
 
 <!-- - [x] critical css -->
@@ -193,4 +213,9 @@ Almost saved 1 second
 [b-opp]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/before/opp.png
 [b-network]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/before/network.png
 [b-details]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/before/details.png
+
+[a-summary]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/after/summary.png
+[a-perf]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/after/perf.png
+[a-opp]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/after/opp.png
+[a-network]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/after/network.png
 [.]: .
