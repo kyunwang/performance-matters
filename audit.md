@@ -198,6 +198,19 @@ Network tab
 ![after network][a-network]
 
 
+The Google LightHouse audit score went from 47 to a 82.
+
+Around **5 seconds** has been shaved off from the *first meaningfull paint* from 6 360ms to 1 270ms! and almost 2 seconds first interactive and consistency interactive.
+
+Almost 10 seconds have and 400KB have been saved too.
+
+
+### What can you do
+
+More things that can increase the performance is to:
+- Subset the fonts
+- Cache the images for re-visites to the site
+
 
 
 <!-- - [x] critical css -->
