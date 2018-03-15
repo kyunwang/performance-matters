@@ -76,8 +76,18 @@ The loading sequence:
 - Fonts
 - Images
 
+### Font loading
 
+Adding font-swap and a script using FontFaceObserver to asynchronously load in fonts.
 
+Network tab
+- 17 requests
+- 1.2 kb Transfered
+- Finish: 30.02s
+- DOMContentLoaded: 15.77s
+- Load: 30.02s
+
+Almost saved 1 second
 
 
 [b-summary]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/before/summary.png
