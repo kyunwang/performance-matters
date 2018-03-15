@@ -30,18 +30,26 @@
     <script src="/assets/js/docs.min.js"></script>
 	 <script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
 	 
-	<script>
+	<script async>
 		(function(document) {
-
-			var font = new FontFaceObserver('source_sans_pro');
-			var html = document.documentElement;
 			// load font async, then enhance HTML:
-			font.load().then(function () {
+			var html = document.documentElement;
+			
+			function loadFonts() {
+				var font300 = new FontFaceObserver('source_sans_pro', { weight: 300 });
+				var font400 = new FontFaceObserver('source_sans_pro', { weight: 400 });
+				return Promise.all([
+					font300.load(),
+					font400.load()
+				]);
+			}
+			
+			loadFonts().then(function () {
 				html.className += 'fonts-loaded';
 			});
 
-			}(document));
-		</script>
+		}(document));
+	</script>
 
     {% block scripts_extra %}{% endblock %}
 </body>
