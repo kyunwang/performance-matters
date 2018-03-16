@@ -1,6 +1,8 @@
 # The audit documentation
 
-This documents documents the audit
+This documents documents the audit.
+
+*The status written under network tab are the averages and may be off a few ms with each load.*
 
 ## Table of Contents
 - [Settings & Tools](#setting-&-tools)
@@ -23,7 +25,6 @@ The used settings and tools:
 ### Settings
 - Disable cache 
 - Throttle: 3G Slow
-- 
 
 ### Browser
 - Google Chrome
@@ -199,11 +200,11 @@ Network tab - First load/above the fold
 The result till now after merging all the changes:
 
 Network tab
-- 19 requests
-- 833 kb Transfered
-- Finish: 21.60s
-- DOMContentLoaded: 12.14s
-- Load: 21.61s
+- 12 requests
+- 498 kb Transfered
+- Finish: 15.49s
+- DOMContentLoaded: 12.01s
+- Load: 15.51s
 
 ![after summary][a-summary]
 
@@ -214,11 +215,11 @@ Network tab
 ![after network][a-network]
 
 
-The Google LightHouse audit score went from 47 to a 82.
+The Google LightHouse audit score went from 47 to a nice 89.
 
-Around **5 seconds** has been shaved off from the *first meaningfull paint* from 6 360ms to 1 270ms! and almost 2 seconds first interactive and consistency interactive.
+Around **5 seconds** has been shaved off from the *first meaningful paint* from 6 360ms to 720ms! and almost 4 seconds first interactive and consistency interactive.
 
-Almost 10 seconds have and 400KB have been saved too.
+Almost 15 seconds have and 700KB have been saved too.
 
 
 ### What can you do
@@ -226,6 +227,7 @@ Almost 10 seconds have and 400KB have been saved too.
 More things that can increase the performance is to:
 - Subset the fonts
 - Cache the images for re-visites to the site
+- Compress served files (gzip, deflate or brotli)
 
 
 
