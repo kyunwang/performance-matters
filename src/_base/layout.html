@@ -14,39 +14,6 @@
     <noscript><link href="/assets/css/src/docs.css" rel="stylesheet"></noscript>
     <script>!function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);</script>
 
-
-	 <script>
-			// Get all of the images that are marked up to lazy load
-			const images = document.querySelectorAll('.img-responsive');
-			
-			const config = {
-				// If the image gets within 50px in the Y axis, start the download.
-				rootMargin: '0px',
-				threshold: 0.01
-			};
-	
-			// If we don't have support for intersection observer, load the images immediately
-			if (!('IntersectionObserver' in window)) {
-				Array.from(images).forEach(image => preloadImage(image));
-			} else {
-				// The observer for the images on the page
-				let observer = new IntersectionObserver(onIntersection, config);
-				console.log(observer);
-				
-				function onIntersection(entries) {
-					// Loop through the entries
-					entries.forEach(entry => {
-						// Are we in viewport?
-						if (entry.intersectionRatio > 0) {
-							// Stop watching and load the image
-							observer.unobserve(entry.target);
-							preloadImage(entry.target);
-						}
-					});
-				}
-			}
-			
-		 </script>
     {% block head_extra %}{% endblock %}
 </head>
 
@@ -58,6 +25,38 @@
     <script defer sync src="/dist/js/bootstrap.js"></script>
     <script defer sync src="/assets/js/docs.min.js"></script>
 	 <script defer sync src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+	 <script>
+			// Thanks to https://github.com/moniac
+			 const images = document.querySelectorAll('.img-responsive');
+				const config = {
+					rootMargin: '0px 0px 50px 0px',
+					threshold: 0
+				};
+				let loaded = 0;
+
+				const observer = new IntersectionObserver(function (entries, self) {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						// console.log(`Image ${entry.target.src} is in the viewport!`);
+						preloadImage(entry.target);
+						// Stop watching and load the image
+						self.unobserve(entry.target);
+					}
+				});
+				}, config);
+
+				images.forEach(image => {
+					observer.observe(image);
+				});
+
+				function preloadImage(img) {
+					const src = img.getAttribute('data-src');
+					if (!src) { return; }
+					img.src = src;
+				}
+		 </script>
 	 
     {% block scripts_extra %}{% endblock %}
 </body>
