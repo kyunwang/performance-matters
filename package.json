@@ -16,7 +16,11 @@
   },
   "dependencies": {
     "body-parser": "1.15.2",
+<<<<<<< HEAD
     "critical": "^1.1.1",
+=======
+    "compression": "^1.7.2",
+>>>>>>> compression
     "express": "4.14.0",
     "gulp": "^3.9.1",
     "gutil": "^1.6.4",

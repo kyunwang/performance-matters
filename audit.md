@@ -16,6 +16,7 @@ This documents documents the audit.
 	- [Critical Css](#critical-css)
 	- [Font loading](#font-loading)
 	- [Lazy load](#lazy-load)
+	- [Compression](#compression)
 - [Result](#result)
 - [](#)
 
@@ -84,14 +85,12 @@ The loading sequence:
 - Fonts
 - Images
 
-### Font loading
-
-### Process
+## Process
 Here the process will be documented.
 
 I started with making a back up after the first audit of the not optimised state in branch `first-snap`. Each optimisation will be based on this state and be merged toghether in the `master` branch.
 
-#### Images
+### Images
 The images are one of the biggest bottlenecks so they will be compressed by using the program `ImageOptim` on mac.
 
 Said images reside in `src/assets/img`.
@@ -194,6 +193,16 @@ Network tab - First load/above the fold
 - DOMContentLoaded: 14.76s
 - Load: 15.21s
 
+### Compression
+Compressing the files served from the express server using the `compression` npm package.
+
+Network tab
+- 17 requests
+- 976 MB Transfered
+- Finish: 25.47s
+- DOMContentLoaded: 8.49s
+- Load: 25.47s
+
 
 ## Result
 
@@ -201,10 +210,10 @@ The result till now after merging all the changes:
 
 Network tab
 - 12 requests
-- 498 kb Transfered
-- Finish: 15.49s
-- DOMContentLoaded: 12.01s
-- Load: 15.51s
+- 243 kb Transfered
+- Finish: 10.50s
+- DOMContentLoaded: 7.03s
+- Load: 10.52s
 
 ![after summary][a-summary]
 
@@ -219,7 +228,7 @@ The Google LightHouse audit score went from 47 to a nice 89.
 
 Around **5 seconds** has been shaved off from the *first meaningful paint* from 6 360ms to 720ms! and almost 4 seconds first interactive and consistency interactive.
 
-Almost 15 seconds have and 700KB have been saved too.
+20 seconds and almost 1mb have been saved too.
 
 
 ### What can you do
@@ -227,7 +236,6 @@ Almost 15 seconds have and 700KB have been saved too.
 More things that can increase the performance is to:
 - Subset the fonts
 - Cache the images for re-visites to the site
-- Compress served files (gzip, deflate or brotli)
 
 
 
@@ -237,8 +245,6 @@ More things that can increase the performance is to:
 <!-- - [x] font loading -->
 <!-- - [x] image optimalisaties -->
 <!-- - [] asynchroon laden van assets -->
-
-
 
 
 [b-summary]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/before/summary.png
