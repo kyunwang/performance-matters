@@ -76,8 +76,15 @@ The loading sequence:
 - Fonts
 - Images
 
+### Compression
+Compressing the files served from the express server using the `compression` npm package.
 
-
+Network tab
+- 17 requests
+- 976 MB Transfered
+- Finish: 25.47s
+- DOMContentLoaded: 8.49s
+- Load: 25.47s
 
 
 [b-summary]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/before/summary.png
