@@ -13,7 +13,9 @@ This documents documents the audit
 	- [Minifying](#minifying)
 	- [Critical Css](#critical-css)
 	- [Font loading](#font-loading)
+	- [Lazy load](#lazy-load)
 - [Result](#result)
+- [](#)
 
 ## Settings & Tools
 The used settings and tools:
@@ -178,6 +180,20 @@ Network tab
 Almost saved 1 second
 
 
+### Lazy load
+
+Lazy loading the images using the `IntersectionObserver` API.
+This API makes it possible to load in the images when they are within a specific range.
+
+
+Network tab - First load/above the fold
+- 12 requests
+- 505 kb Transfered
+- Finish: 15.20s
+- DOMContentLoaded: 14.76s
+- Load: 15.21s
+
+
 ## Result
 
 The result till now after merging all the changes:
@@ -213,8 +229,10 @@ More things that can increase the performance is to:
 
 
 
+
+
 <!-- - [x] critical css -->
-<!-- - [] font loading -->
+<!-- - [x] font loading -->
 <!-- - [x] image optimalisaties -->
 <!-- - [] asynchroon laden van assets -->
 

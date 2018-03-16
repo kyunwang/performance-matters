@@ -4,7 +4,7 @@
     {% include './app-meta.html' %}
 
     <style type="text/css">
-        @font-face{font-family:source_sans_pro;src:url(/dist/fonts/sourcesanspro-it.woff2) format('woff2'),url(/dist/fonts/sourcesanspro-it.woff) format('woff');font-weight:400;font-style:italic}@font-face{font-family:source_sans_pro;src:url(/dist/fonts/sourcesanspro-light.woff2) format('woff2'),url(/dist/fonts/sourcesanspro-light.woff) format('woff');font-weight:300;font-style:normal}@font-face{font-family:source_sans_pro;src:url(/dist/fonts/sourcesanspro-lightit.woff2) format('woff2'),url(/dist/fonts/sourcesanspro-lightit.woff) format('woff');font-weight:300;font-style:italic}@font-face{font-family:source_sans_pro;src:url(/dist/fonts/sourcesanspro-regular.woff2) format('woff2'),url(/dist/fonts/sourcesanspro-regular.woff) format('woff');font-weight:400;font-style:normal}@-ms-viewport{width:device-width}html{font-family:source_sans_pro,sans-serif}html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}html{font-size:10px}body{font-size:14px;line-height:1.42857143;color:#333;background-color:#fff}body{position:relative}
+        @font-face{font-family:source_sans_pro;src:url(/dist/fonts/sourcesanspro-it.woff2) format('woff2'),url(/dist/fonts/sourcesanspro-it.woff) format('woff');font-weight:400;font-style:italic;font-display:swap}@font-face{font-family:source_sans_pro;src:url(/dist/fonts/sourcesanspro-light.woff2) format('woff2'),url(/dist/fonts/sourcesanspro-light.woff) format('woff');font-weight:300;font-style:normal;font-display:swap}@font-face{font-family:source_sans_pro;src:url(/dist/fonts/sourcesanspro-lightit.woff2) format('woff2'),url(/dist/fonts/sourcesanspro-lightit.woff) format('woff');font-weight:300;font-style:italic;font-display:swap}@font-face{font-family:source_sans_pro;src:url(/dist/fonts/sourcesanspro-regular.woff2) format('woff2'),url(/dist/fonts/sourcesanspro-regular.woff) format('woff');font-weight:400;font-style:normal;font-display:swap}@-ms-viewport{width:device-width}html{font-family:source_sans_pro,sans-serif}html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}html{font-size:10px}body{font-size:14px;line-height:1.42857143;color:#333;background-color:#fff}body{position:relative}
     </style>
     <link href="/dist/css/fonts.css" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="/dist/css/fonts.css" rel="stylesheet"></noscript>
@@ -50,7 +50,38 @@
 
 		}(document));
 	</script>
+	
+	 <script>
+			// Thanks to https://github.com/moniac
+			 const images = document.querySelectorAll('.img-responsive');
+				const config = {
+					rootMargin: '0px 0px 50px 0px',
+					threshold: 0
+				};
+				let loaded = 0;
 
+				const observer = new IntersectionObserver(function (entries, self) {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						// console.log(`Image ${entry.target.src} is in the viewport!`);
+						preloadImage(entry.target);
+						// Stop watching and load the image
+						self.unobserve(entry.target);
+					}
+				});
+				}, config);
+
+				images.forEach(image => {
+					observer.observe(image);
+				});
+
+				function preloadImage(img) {
+					const src = img.getAttribute('data-src');
+					if (!src) { return; }
+					img.src = src;
+				}
+		 </script>
+	 
     {% block scripts_extra %}{% endblock %}
 </body>
 </html>
