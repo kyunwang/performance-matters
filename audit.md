@@ -224,9 +224,9 @@ Network tab
 ![after network][a-network]
 
 
-The Google LightHouse audit score went from 47 to a nice 89.
+The Google LightHouse audit score went from 47 to a nice 95.
 
-Around **5 seconds** has been shaved off from the *first meaningful paint* from 6 360ms to 720ms! and almost 4 seconds first interactive and consistency interactive.
+Around **5 seconds** has been shaved off from the *first meaningful paint* from 6 360ms to 700ms! and 5 seconds first interactive and consistency interactive.
 
 20 seconds and almost 1mb have been saved too.
 
@@ -237,14 +237,6 @@ More things that can increase the performance is to:
 - Subset the fonts
 - Cache the images for re-visites to the site
 
-
-
-
-
-<!-- - [x] critical css -->
-<!-- - [x] font loading -->
-<!-- - [x] image optimalisaties -->
-<!-- - [] asynchroon laden van assets -->
 
 
 [b-summary]: https://github.com/kyunwang/performance-matters/blob/master/docs/images/before/summary.png
