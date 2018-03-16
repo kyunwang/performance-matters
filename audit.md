@@ -12,6 +12,7 @@ This documents documents the audit
 	- [Images](#images)
 	- [Minifying](#minifying)
 	- [Critical Css](#critical-css)
+	- [Lazy load](#lazy-load)
 - [](#)
 
 ## Settings & Tools
@@ -159,6 +160,20 @@ Network tab
 - Load: 22.13s
 
 Around 9 seconds have been won.
+
+
+### Lazy load
+
+Lazy loading the images using the `IntersectionObserver` API.
+This API makes it possible to load in the images when they are within a specific range.
+
+
+Network tab - First load/above the fold
+- 12 requests
+- 505 kb Transfered
+- Finish: 15.20s
+- DOMContentLoaded: 14.76s
+- Load: 15.21s
 
 
 <!-- - [x] critical css -->
